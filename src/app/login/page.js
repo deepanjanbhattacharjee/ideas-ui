@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image';
-import Logo from '../../../public/ideas.png';
-import LoginArt from '../../../public/login/undraw_thought_process_re_om58.svg'
+import Logo from '/public/ideas.png';
+import LoginArt from '/public/login/undraw_thought_process_re_om58.svg'
 import LoginForm from './loginForm';
 
 const login = ()=>{

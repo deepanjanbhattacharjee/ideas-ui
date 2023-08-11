@@ -1,7 +1,7 @@
-import FacebookLogo from '../../../public/login/Facebook.png'
-import GitHubLogo from '../../../public/login/GitHub.png'
-import GoogleLogo from '../../../public/login/Google.png'
-import TwitterLogo from '../../../public/login/Twitter.png'
+import FacebookLogo from '/public/login/Facebook.png'
+import GitHubLogo from '/public/login/GitHub.png'
+import GoogleLogo from '/public/login/Google.png'
+import TwitterLogo from '/public/login/Twitter.png'
 import Image from 'next/image';
 
 const socialMediaLinks = ()=>{

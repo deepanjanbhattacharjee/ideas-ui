@@ -4,7 +4,7 @@ import Diversity3RoundedIcon from '@mui/icons-material/Diversity3Rounded';
 import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import Button from '@mui/material/Button';
 import Image from 'next/image';
-import ProfilePic from '../../../public/platform/profilePic.jpg'
+import ProfilePic from '/public/platform/profilePic.jpg'
 
 const leftNavBar = ({setSegment})=>{
     const menuItems = [
