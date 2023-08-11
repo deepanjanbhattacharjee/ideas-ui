@@ -8,9 +8,13 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        // 'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        // 'gradient-conic':
+        //   'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'logo': "url(/ideas.png)",
+        'login-bg': "url(/background/699.jpg)",
+        'login-art': "url(/login/undraw_thought_process_re_om58.svg)",
+        'platform-bg': "url(/background/8585.jpg)"
       },
     },
   },
