@@ -1,3 +1,5 @@
+'use client'
+import { useState } from 'react';
 import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
@@ -6,13 +8,42 @@ import IconButton from '@mui/material/IconButton';
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 import NotificationsActiveRoundedIcon from '@mui/icons-material/NotificationsActiveRounded';
 import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
+import Modal from '../../components/modal';
+import { usePathname  } from 'next/navigation';
+import CreatePost from './createPost';
 
 const topNavBar = ()=>{
+
+    const [showModal,setModalVisibility] = useState(false);
+
+    let pathName = usePathname();
+    pathName = pathName.slice(1);
+    pathName = pathName.charAt(0).toUpperCase() + pathName.slice(1);
+
+    let placeHolder = ''
+    if(pathName == "Dashboard"){
+        placeHolder = "Search for an idea..."
+    }else if(pathName == "Forum"){
+        placeHolder = "Search for a chat..."
+    }else if(pathName == "Circle"){
+        placeHolder = "Search for a group..."
+    }else if(pathName == "Profile"){
+        placeHolder = "Search for a detail..."
+    }
+
+    const openPostModal =()=>{
+        setModalVisibility(true)
+    }
+
+    const closePostModal =()=>{
+        setModalVisibility(false)
+    }
+
     return(
         <div className="flex justify-between h-[10%]">
-            <span className="text-sky-600 font-bold w-2/12">Dashboard</span>
+            <span className="text-sky-600 font-bold w-2/12">{pathName}</span>
             <div className='w-6/12'>
-                <TextField id="standard-basic" placeholder="Search for a idea..."
+                <TextField id="standard-basic" placeholder={placeHolder}
                 InputProps={{
                     startAdornment: (
                     <InputAdornment position="start">
@@ -31,16 +62,21 @@ const topNavBar = ()=>{
                 className='w-2/3'/>
             </div>
             <div className='flex justify-between w-1/12 items-start'>
-            <IconButton color="primary" aria-label="add to shopping cart">
-                 <AddCircleRoundedIcon />
-            </IconButton>
-            <IconButton color="primary" aria-label="add to shopping cart">
+                {pathName == "Dashboard" && 
+                            <IconButton color="primary" onClick={openPostModal}>
+                            <AddCircleRoundedIcon />
+                       </IconButton>
+                }
+            <IconButton color="primary">
                  <NotificationsActiveRoundedIcon />
             </IconButton>
-            <IconButton color="primary" aria-label="add to shopping cart">
+            <IconButton color="primary">
                  <SettingsRoundedIcon />
             </IconButton>
             </div>
+            {showModal && <Modal onClose={()=>setModalVisibility(false)} classes=''>
+                    <CreatePost></CreatePost>
+                </Modal>}
         </div>
     )
 }

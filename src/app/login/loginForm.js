@@ -10,7 +10,7 @@ const loginForm = ()=>{
     const router = useRouter()
 
     const onSubmit = data => {
-        router.push('/platform')
+        router.push('/dashboard')
     };
 
 

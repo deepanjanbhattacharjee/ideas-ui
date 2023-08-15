@@ -5,30 +5,32 @@ import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
 import Button from '@mui/material/Button';
 import Image from 'next/image';
 import ProfilePic from '/public/platform/profilePic.jpg'
+import Link from 'next/link';
 
-const leftNavBar = ({setSegment})=>{
+const leftNavBar = ()=>{
     const menuItems = [
         {
             title: 'Home',
-            icon: HomeRoundedIcon
+            icon: HomeRoundedIcon,
+            route : '/dashboard '
         },
         {
             title: 'Forum',
-            icon: ForumRoundedIcon
+            icon: ForumRoundedIcon,
+            route : '/forum'
         },
         {
             title: 'Circle',
-            icon: Diversity3RoundedIcon
+            icon: Diversity3RoundedIcon,
+            route : '/circle'
         },
         {
             title: 'Profile',
-            icon: AccountCircleRoundedIcon
+            icon: AccountCircleRoundedIcon,
+            route: '/profile'
         },
     ]
 
-    const changeSegment=(segment)=>{
-        setSegment(segment)
-    }
 
     return(
         <div className='w-1/5 rounded-2xl bg-white px-12 py-12'>
@@ -47,10 +49,11 @@ const leftNavBar = ({setSegment})=>{
             </div>
             <div className='mt-8'>
                 {menuItems.map(item=>{
-                    return <div className="flex text-sky-600 h-15 p-3 hover:bg-sky-600 hover:cursor-pointer hover:rounded-2xl hover:text-slate-300" key={item.title} onClick={changeSegment(item.title)}>
+                    return <Link href={item.route} className="flex text-sky-600 h-15 p-3 hover:bg-sky-600 hover:cursor-pointer hover:rounded-2xl hover:text-slate-300" key={item.title}>
                         <item.icon></item.icon>
-                        <span>{item.title}</span>
-                    </div>
+                        <span className='ml-2'>{item.title}
+                        </span>
+                    </Link>
                 })}
             </div>
         </div>

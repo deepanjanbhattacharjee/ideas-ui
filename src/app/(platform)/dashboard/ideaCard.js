@@ -2,6 +2,11 @@ import Image from 'next/image';
 import ProfilePic from '/public/platform/profilePic.jpg'
 import IdeaPic from '/public/login/undraw_Thought_process_re_om58.png'
 import IdeaTags from './ideaTags';
+import Checkbox from '@mui/material/Checkbox';
+import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
+import Favorite from '@mui/icons-material/Favorite';
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+import BookmarkIcon from '@mui/icons-material/Bookmark';
 import NorthRoundedIcon from '@mui/icons-material/NorthRounded';
 import SouthRoundedIcon from '@mui/icons-material/SouthRounded';
 
@@ -47,7 +52,7 @@ const ideaCard = (props)=>{
     ]
 
     return(
-        <div className="flex flex-col my-8" key={props.id}>
+        <div className="flex flex-col my-8">
             <div className='flex justify-between'>
                 <div className='flex w-2/12 items-center'>
                     <Image
@@ -60,8 +65,12 @@ const ideaCard = (props)=>{
                     <span className='text-slate-400'>John Doe</span>
                 </div>
                 <div className='flex w-1/12'>
-                    <NorthRoundedIcon></NorthRoundedIcon>
-                    <SouthRoundedIcon></SouthRoundedIcon>
+                    <Checkbox
+                        icon={<BookmarkBorderIcon />}
+                        checkedIcon={<BookmarkIcon />}
+                    />
+                    {/* <NorthRoundedIcon></NorthRoundedIcon>
+                    <SouthRoundedIcon></SouthRoundedIcon> */}
                 </div>
             </div>
             <div className=''>
@@ -82,7 +91,7 @@ const ideaCard = (props)=>{
                 </div>
                 <div className='flex'>
                     {tagList.map(tag=>{
-                        return <IdeaTags tagName={tag.title} id={tag.id}></IdeaTags>
+                        return <IdeaTags tagName={tag.title} key={tag.id}></IdeaTags>
                     })}
                 </div>
                 <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>

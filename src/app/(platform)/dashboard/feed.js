@@ -6,7 +6,7 @@ const feedArea = ()=>{
     return(
         <div className="p-4">
             {feedList.map((feed)=>{
-                return <IdearCard id={feed}></IdearCard>
+                return <IdearCard key={feed}></IdearCard>
             })}
         </div>
     )
