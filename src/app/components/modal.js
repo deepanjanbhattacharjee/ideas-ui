@@ -1,10 +1,12 @@
 'use client'
 import {React} from "react";
 import ReactDOM from "react-dom";
+import IconButton from '@mui/material/IconButton';
+import CancelRoundedIcon from '@mui/icons-material/CancelRounded';
 
 const modal = ({onClose, children, title,classes})=>{
 
-    const wrapperClass = classes.wrapperClass?classes.wrapperClass:'absolute z-[999]'
+    const modalContainerClass = classes.modalContainerClass?classes.modalContainerClass:'absolute z-[999]'
     const spanClass = classes.spanClass?classes.spanClass:'text-base'
 
     const handleCloseClick = (e) => {
@@ -18,8 +20,13 @@ const modal = ({onClose, children, title,classes})=>{
     )
 
     const modalContent = (
-        <div className={wrapperClass}>
-            <span className={spanClass}>{title}</span>
+        <div className={modalContainerClass}>
+            <div className="flex justify-between">
+                <span className={spanClass}>{title}</span>
+                <IconButton color="primary" className="p-0" onClick={(e)=>handleCloseClick(e)}>
+                    <CancelRoundedIcon />
+                </IconButton>
+            </div>
             {children}
         </div>
     )

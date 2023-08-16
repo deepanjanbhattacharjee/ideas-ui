@@ -33,7 +33,7 @@ const leftNavBar = ()=>{
 
 
     return(
-        <div className='w-1/5 rounded-2xl bg-white px-12 py-12'>
+        <div className='w-1/5 rounded-2xl bg-white px-12 py-12 relative'>
             <div className='flex flex-col text-center h-1/3 justify-between'>
                 <div className='rounded-3xl'>
                 <Image
@@ -49,12 +49,15 @@ const leftNavBar = ()=>{
             </div>
             <div className='mt-8'>
                 {menuItems.map(item=>{
-                    return <Link href={item.route} className="flex text-sky-600 h-15 p-3 hover:bg-sky-600 hover:cursor-pointer hover:rounded-2xl hover:text-slate-300" key={item.title}>
+                    return <Link href={item.route} className="flex text-header-text h-15 p-3 hover:bg-hightlight-col hover:cursor-pointer hover:rounded-2xl hover:text-slate-300" key={item.title}>
                         <item.icon></item.icon>
                         <span className='ml-2'>{item.title}
                         </span>
                     </Link>
                 })}
+            </div>
+            <div className="absolute bottom-[2rem] h-[25%] w-[72%] bg-slate-50 rounded-2xl p-4">
+                Google Ad Sense
             </div>
         </div>
     )

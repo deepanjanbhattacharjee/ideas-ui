@@ -16,6 +16,12 @@ module.exports = {
         'login-art': "url(/login/undraw_thought_process_re_om58.svg)",
         'platform-bg': "url(/background/8585.jpg)"
       },
+      backgroundColor:{
+        'hightlight-col':'#1976d2'
+      },
+      textColor:{
+        'header-text': '#1976d2'
+      }
     },
   },
   plugins: [],

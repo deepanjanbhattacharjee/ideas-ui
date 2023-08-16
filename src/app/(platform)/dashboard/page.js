@@ -11,7 +11,7 @@ const dashboard = (props)=>{
             </div>
             <div className='w-[30%] h-full'>
                 <Filters></Filters>
-                {/* <Stats></Stats> */}
+                <Stats></Stats>
             </div>
         </div>
     )

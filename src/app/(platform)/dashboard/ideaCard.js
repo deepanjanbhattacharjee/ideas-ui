@@ -9,7 +9,7 @@ import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import BookmarkIcon from '@mui/icons-material/Bookmark';
 import NorthRoundedIcon from '@mui/icons-material/NorthRounded';
 import SouthRoundedIcon from '@mui/icons-material/SouthRounded';
-
+import Reactions from '../components/reactions';
 
 const ideaCard = (props)=>{
 
@@ -64,7 +64,8 @@ const ideaCard = (props)=>{
                         />
                     <span className='text-slate-400'>John Doe</span>
                 </div>
-                <div className='flex w-1/12'>
+                <div className='flex w-4/12'>
+                    <Reactions />
                     <Checkbox
                         icon={<BookmarkBorderIcon />}
                         checkedIcon={<BookmarkIcon />}

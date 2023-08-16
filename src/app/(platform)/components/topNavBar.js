@@ -39,9 +39,18 @@ const topNavBar = ()=>{
         setModalVisibility(false)
     }
 
+    const modalClasses = {
+        modalContainerClass : 'w-6/12 h-2/3 absolute left-[25%] top-[18%] z-[999] p-8 rounded-2xl bg-white',
+        spanClass: 'text-lg text-header-text font-bold'
+    }
+
+    const createPostClasses = {
+        containerClass: 'flex flex-col justify-evenly h-full'
+    }
+
     return(
         <div className="flex justify-between h-[10%]">
-            <span className="text-sky-600 font-bold w-2/12">{pathName}</span>
+            <span className="text-header-text font-bold w-2/12">{pathName}</span>
             <div className='w-6/12'>
                 <TextField id="standard-basic" placeholder={placeHolder}
                 InputProps={{
@@ -74,8 +83,8 @@ const topNavBar = ()=>{
                  <SettingsRoundedIcon />
             </IconButton>
             </div>
-            {showModal && <Modal onClose={()=>setModalVisibility(false)} classes=''>
-                    <CreatePost></CreatePost>
+            {showModal && <Modal onClose={()=>setModalVisibility(false)} title="Post your idea" classes={...modalClasses}>
+                    <CreatePost classes={...createPostClasses}></CreatePost>
                 </Modal>}
         </div>
     )
